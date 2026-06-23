@@ -1,0 +1,10 @@
+file_format: "1"
+id: 50keylove_v4
+name: 50keylove_v4
+type: shield
+url: 
+requires:
+  - pro_micro
+features:
+  - keys
+  - display

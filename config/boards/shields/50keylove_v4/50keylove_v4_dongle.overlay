@@ -1,0 +1,134 @@
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
+
+/ {
+    chosen {
+        zmk,kscan = &mock_kscan;
+        zephyr,display = &oled;
+        zmk,physical-layout = &physical_layout1;
+    };
+
+    mock_kscan: mock_kscan {
+        compatible = "zmk,kscan-mock";
+        columns = <0>;
+        rows = <0>;
+        events = <0>;
+    };
+
+    keymap_transform1: keymap_transform1 {
+        compatible = "zmk,matrix-transform";
+        columns = <14>; // Length of the "col-gpios" array
+        rows = <4>; // Length of the "row-gpios" array
+        map = <
+            RC(0,0) RC(0,1) RC(0,2) RC(0,3) RC(0,4) RC(0,5) RC(0,6)  RC(0,7) RC(0,8) RC(0,9) RC(0,10) RC(0,11) RC(0,12) RC(0,13)
+            RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6)  RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11) RC(1,12) RC(1,13)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6)  RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12) RC(2,13)
+                                    RC(3,3) RC(3,4) RC(3,5) RC(3,6)  RC(3,7) RC(3,8) RC(3,9) RC(3,10) 
+        >;
+    };
+
+    physical_layout1: physical_layout1 {
+        compatible = "zmk,physical-layout";
+        display-name = "50keylove-LAYOUT";
+        kscan = <&mock_kscan>;
+        transform = <&keymap_transform1>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0  100    1500   360   160>
+            , <&key_physical_attrs 100 100  100  100    1500   360   160>
+            , <&key_physical_attrs 100 100  200   25    1500   360   160>
+            , <&key_physical_attrs 100 100  300    0    1500   360   160>
+            , <&key_physical_attrs 100 100  400   25    1500   360   160>
+            , <&key_physical_attrs 100 100  500   50    1500   360   160>
+            , <&key_physical_attrs 100 100  600   50    1500   360   160>
+            , <&key_physical_attrs 100 100  925   50 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1025   50 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1125   25 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1225    0 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1325   25 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1425  100 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1525  100 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100    0  200    1500   360   160>
+            , <&key_physical_attrs 100 100  100  200    1500   360   160>
+            , <&key_physical_attrs 100 100  200  125    1500   360   160>
+            , <&key_physical_attrs 100 100  300  100    1500   360   160>
+            , <&key_physical_attrs 100 100  400  125    1500   360   160>
+            , <&key_physical_attrs 100 100  500  150    1500   360   160>
+            , <&key_physical_attrs 100 100  600  150    1500   360   160>
+            , <&key_physical_attrs 100 100  925  150 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1025  150 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1125  125 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1225  100 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1325  125 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1425  200 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1525  200 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100    0  300    1500   360   160>
+            , <&key_physical_attrs 100 100  100  300    1500   360   160>
+            , <&key_physical_attrs 100 100  200  225    1500   360   160>
+            , <&key_physical_attrs 100 100  300  200    1500   360   160>
+            , <&key_physical_attrs 100 100  400  225    1500   360   160>
+            , <&key_physical_attrs 100 100  500  250    1500   360   160>
+            , <&key_physical_attrs 100 100  600  250    1500   360   160>
+            , <&key_physical_attrs 100 100  925  250 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1025  250 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1125  225 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1225  200 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1325  225 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1425  300 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1525  300 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100  350  350    1500   360   160>
+            , <&key_physical_attrs 100 100  450  350    1500   360   160>
+            , <&key_physical_attrs 100 100  550  350    1500   360   160>
+            , <&key_physical_attrs 100 100  750  170    4500   360   160>
+            , <&key_physical_attrs 100 100  775  165 (-4500)  1270   156>
+            , <&key_physical_attrs 100 100  975  350 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1075  350 (-1500)  1270   156>
+            , <&key_physical_attrs 100 100 1175  350 (-1500)  1270   156>
+            ;
+    };
+};
+
+&pinctrl {
+    spi0_default: spi0_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 20)>,
+                <NRF_PSEL(SPIM_MISO, 0, 11)>;
+        };
+    };
+
+    spi0_sleep: spi0_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 17)>,
+                <NRF_PSEL(SPIM_MOSI, 0, 20)>,
+                <NRF_PSEL(SPIM_MISO, 0, 11)>;
+                low-power-enable;
+        };
+    };
+};
+
+&pro_micro_spi {
+    status = "okay";
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    oled: ssd1306@0 {
+        compatible = "solomon,ssd1306fb";
+        data_cmd-gpios = <&gpio0 24 0>;
+        segment-offset = <0>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        prechargep = <0x22>;
+        reset-gpios = <&gpio0 22 GPIO_ACTIVE_LOW>;
+        height = <64>;
+        width = <128>;
+        spi-max-frequency = <10000000>;
+        reg = <0x00>;
+        //segment-remap;
+        //com-invdir;
+        inversion-on;
+    };
+};

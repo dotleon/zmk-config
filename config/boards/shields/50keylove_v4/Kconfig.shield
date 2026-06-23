@@ -1,0 +1,8 @@
+config SHIELD_50KEYLOVE_V4
+    def_bool $(shields_list_contains,50keylove_v4)
+
+config SHIELD_50KEYLOVE_V4_DONGLE
+    def_bool $(shields_list_contains,50keylove_v4_dongle)
+
+config SHIELD_50KEYLOVE_V4_MINIDONGLE
+    def_bool $(shields_list_contains,50keylove_v4_minidongle)
