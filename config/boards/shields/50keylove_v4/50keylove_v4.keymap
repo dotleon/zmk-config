@@ -1,0 +1,70 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include "keys_hu.h"
+
+&mt {
+    quick-tap-ms = <250>;
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_bootloader {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&bootloader>;
+        };
+
+        // combo_lshift {
+        //     timeout-ms = <150>;
+        //     key-positions = <17 18>;
+        //     bindings = <&kp LSHIFT>;
+        // };
+
+        // combo_rshift {
+        //     timeout-ms = <150>;
+        //     key-positions = <23 24>;
+        //     bindings = <&kp RSHIFT>;
+        // };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer { // Layer 0
+            bindings = <
+                &kp ESC         &kp Q     &kp W  &kp E     &kp R  &kp T      &kp HU_EA    &kp HU_UA   &kp HU_Z  &kp U  &kp I      &kp O    &kp P      &kp DEL
+                &mt LSHFT BSPC  &kp A     &kp S  &kp D     &kp F  &kp G      &kp HU_AA    &kp HU_OA   &kp H     &kp J  &kp K      &kp L    &kp HU_OU  &kp ENTER
+                &kp TAB         &kp HU_Y  &kp X  &kp C     &kp V  &kp B      &kp HU_IA    &kp HU_ODA  &kp N     &kp M  &kp COMMA  &kp DOT  &kp HU_UU  &kp HU_UDA
+                                                 &kp LALT  &mo 2  &kp SPACE  &kp LCTRL    &mo 3       &mo 1     &mo 2  &kp LGUI
+            >;
+        };
+
+        sym {
+            bindings = <
+                &trans  &kp HU_SQT   &kp HU_DQT   &trans       &kp HU_EXCL  &kp HU_CARET  &trans         &trans  &kp HU_DLLR  &kp HU_EURO  &kp HU_TILDE  &trans        &kp HU_PRCNT  &trans
+                &trans  &kp HU_LPAR  &kp HU_RPAR  &kp HU_LBRC  &kp HU_RBRC  &kp HU_LBKT   &kp HU_RBKT    &trans  &kp HU_SEMI  &kp HU_PLUS  &kp HU_MINUS  &kp HU_EQUAL  &trans        &trans
+                &trans  &kp HU_LT    &kp HU_GT    &kp HU_PIPE  &kp HU_BSLH  &kp HU_SLASH  &trans         &trans  &kp HU_STAR  &kp HU_AT    &kp HU_AMPS   &kp HU_POUND  &trans        &trans
+                                                  &trans       &trans       &trans        &trans         &trans  &trans       &trans       &trans
+            >;
+        };
+
+        num {
+            bindings = <
+                &trans  &trans     &kp N7  &kp N8  &kp N9  &kp HU_STAR  &kp HU_SLASH    &kp F8    &kp PG_UP  &kp HOME       &kp UP    &kp END    &trans  &trans
+                &trans  &kp ENTER  &kp N4  &kp N5  &kp N6  &kp DOT      &kp HU_MINUS    &trans    &kp PG_DN  &kp LEFT       &kp DOWN  &kp RIGHT  &trans  &trans
+                &trans  &kp HU_N0  &kp N1  &kp N2  &kp N3  &kp COMMA    &kp HU_PLUS     &trans    &trans     &kp LA(SPACE)  &trans    &trans     &trans  &kp LG(LS(S))
+                                           &trans  &trans  &trans       &trans          &trans    &trans     &trans         &trans
+            >;
+        };
+        fn {
+            bindings = <
+                &bootloader  &trans  &kp F7  &kp F8  &kp F9  &kp F10  &trans    &studio_unlock  &trans  &trans  &trans  &trans  &trans  &trans
+                &kp CAPS     &trans  &kp F4  &kp F5  &kp F6  &kp F11  &trans    &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                &kp KP_NUM   &trans  &kp F1  &kp F2  &kp F3  &kp F12  &trans    &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                             &trans  &trans  &trans   &trans    &trans          &trans  &trans  &trans
+            >;
+        };
+    };
+};
